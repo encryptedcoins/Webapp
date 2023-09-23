@@ -48,17 +48,54 @@ body {
   font-weight: 400;
 }
 
-.menu-item.menu-item-settings {
-  width: 30px;
+.menu-item.menu-item-locked {
+  width: 22px;
   height: 31px;
-  background-image: url('../images/Settings.svg');
+  background-image: url('../images/locked.svg');
   background-position: 0px 0px;
   background-size: auto;
 }
 
-.menu-item.menu-item-settings:hover {
-  background-image: url('../images/Settings-Active.svg');
+.menu-item.menu-item-locked:hover {
+  background-image: url('../images/locked-active.svg');
   cursor: pointer;
+}
+
+.menu-item.menu-item-locked-text {
+  display: none;
+}
+
+.menu-item.menu-item-locked:hover .menu-item-locked-text {
+  display: block;
+  font-weight: 400;
+  position: relative;
+  top: 50px;
+  white-space: nowrap;
+}
+
+.menu-item.menu-item-unlocked {
+  width: 29px;
+  height: 31px;
+  background-image: url('../images/unlocked.svg');
+  background-position: 0px 0px;
+  background-size: auto;
+}
+
+.menu-item.menu-item-unlocked:hover {
+  background-image: url('../images/unlocked-active.svg');
+  cursor: pointer;
+}
+
+.menu-item.menu-item-unlocked-text {
+  display: none;
+}
+
+.menu-item.menu-item-unlocked:hover .menu-item-unlocked-text {
+  display: block;
+  font-weight: 400;
+  position: relative;
+  top: 50px;
+  white-space: nowrap;
 }
 
 .nav-menu {
@@ -184,6 +221,35 @@ body {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.vote-option-result {
+  position: relative;
+  display: inline-block;
+  min-width: 210px;
+  padding: 10px 48px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: Poppins, sans-serif;
+  color: #181818;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.05em;
+  cursor: default;
+  pointer-events: none;
 }
 
 .app-button {
@@ -1492,4 +1558,3 @@ body {
     width: 200px;
   }
 }
-
