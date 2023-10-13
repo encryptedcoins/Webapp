@@ -48,64 +48,6 @@ body {
   font-weight: 400;
 }
 
-.menu-item.menu-item-locked {
-  width: 22px;
-  height: 31px;
-  background-image: url('../images/locked.svg');
-  background-position: 0px 0px;
-  background-size: auto;
-}
-
-.menu-item.menu-item-locked:hover {
-  background-image: url('../images/locked-active.svg');
-  cursor: pointer;
-}
-
-.menu-item.popup-text {
-  display: none;
-}
-
-.menu-item.menu-item-locked:hover .popup-text {
-  display: block;
-  font-weight: 400;
-  position: relative;
-  top: 50px;
-  white-space: nowrap;
-}
-
-.menu-item.menu-item-unlocked {
-  width: 29px;
-  height: 31px;
-  background-image: url('../images/unlocked.svg');
-  background-position: 0px 0px;
-  background-size: auto;
-}
-
-.menu-item.menu-item-unlocked:hover {
-  background-image: url('../images/unlocked-active.svg');
-  cursor: pointer;
-}
-
-.menu-item.popup-text {
-  display: none;
-}
-
-.menu-item.menu-item-unlocked:hover .popup-text {
-  display: block;
-  font-weight: 400;
-  position: relative;
-  top: 50px;
-  white-space: nowrap;
-}
-
-.menu-item-notify-text {
-  display: block;
-  font-weight: 400;
-  position: fixed;
-  margin-top: 5px;
-  white-space: nowrap;
-}
-
 .nav-menu {
   display: -webkit-box;
   display: -webkit-flex;
@@ -821,6 +763,8 @@ body {
   display: flex;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -829,6 +773,14 @@ body {
   grid-row-gap: 30px;
   background-color: #fff;
   color: #000;
+  min-width: 210px;
+}
+
+@media screen and (min-width: 767px) {
+  .transaction-balance-div {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 
 .app-text-semibold {
@@ -950,6 +902,7 @@ body {
   font-size: 18px;
   line-height: 32px;
 }
+
 
 .body {
   border-bottom: 1px solid #313135;
@@ -1346,7 +1299,7 @@ body {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 989px) {
   .nav-menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1510,6 +1463,9 @@ body {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
   }
 
   .coin-new-input {
@@ -1574,6 +1530,36 @@ body {
   }
 }
 
+.app-tab-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @media screen and (min-width: 767px) {
+    flex-direction: row;
+  }
+}
+
+.menu-tab-item-button {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+
+@media screen and (min-width: 767px) {
+  .menu-tab-item-button {
+    width: 33%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
 .notification {
   position: absolute;
   margin-top: 10px;
@@ -1588,5 +1574,214 @@ body {
   font-family: Poppins, sans-serif;
   line-height: 32px;
   color: grey;
+  text-align: center;
+}
+
+.app-Nav_Locker-close {
+  width: 22px;
+  min-width: 22px;
+  height: 31px;
+  max-height: 31px;
+  background-image: url('../images/locked.svg');
+  background-position: 0px 0px;
+  background-size: auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.app-Nav_Locker-close:hover {
+  background-image: url('../images/locked-active.svg');
+  cursor: pointer;
+}
+
+@media screen and (min-width: 767px) {
+  .app-Nav_Locker-close {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.app-Nav_Locker-open {
+  width: 29px;
+  min-width: 29px;
+  height: 31px;
+  max-height: 31px;
+  background-image: url('../images/unlocked.svg');
+  background-position: 0px 0px;
+  background-size: auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.app-Nav_Locker-open:hover {
+  background-image: url('../images/unlocked-active.svg');
+  cursor: pointer;
+}
+
+@media screen and (min-width: 767px) {
+  .app-Nav_Locker-open {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.app-Nav_CachePopup {
+  display: flex;
+  top: auto;
+  right: 83px;
+  margin-top: 10px;
+  padding-top: 30px;
+  position: relative;
+  font-weight: 400;
   white-space: nowrap;
 }
+
+@media screen and (min-width: 767px) {
+  .app-Nav_CachePopup {
+    display: none;
+    top: 50px;
+    position: absolute;
+  }
+}
+
+.app-Nav_Locker-close:hover .app-Nav_CachePopup {
+  display: inline-block;
+}
+
+.app-Nav_Locker-open:hover .app-Nav_CachePopup {
+  display: inline-block;
+}
+
+.app-Nav_LockerContainer {
+  margin-left: 10px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+.app-ImportExportButton {
+  margin-right: 0px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+@media screen and (min-width: 767px) {
+  .app-ImportExportButton {
+    margin-right: 10px;
+  }
+}
+
+.app-SendTransferButton {
+  margin-right: 0px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+@media screen and (min-width: 767px) {
+  .app-SendTransferButton {
+    margin-right: 10px;
+  }
+}
+
+.app-CoinColumnRight {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+@media screen and (min-width: 767px) {
+  .app-CoinColumnRight {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+.app-EnterPassword_ButtonContainer {
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  gap: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 662px) {
+  .app-EnterPassword_ButtonContainer {
+    display:flex;
+    flex-direction: row;
+  }
+}
+
+.app-PasswordSetting_ButtonContainer {
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+  @media screen and (min-width: 860px) {
+    .app-PasswordSetting_ButtonContainer {
+      display:flex;
+      flex-direction: row;
+    }
+  }
+
+.app-CleanCache_ButtonContainer {
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 900px) {
+    .app-CleanCache_ButtonContainer {
+      display:flex;
+      flex-direction: row;
+    }
+  }
+
+.app-CleanCache_Description {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.app-ToolTip_MintingKey {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  overflow-wrap: anywhere;
+}
+
+.dao-DelegateWindow_EnterUrl {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: left;
+}
+
+.dao-DelegateWindow_ButtonStatusContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  gap: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 550px) {
+  .dao-DelegateWindow_ButtonStatusContainer {
+    display:flex;
+    flex-direction: row;
+    justify-content:left;
+    }
+  }
