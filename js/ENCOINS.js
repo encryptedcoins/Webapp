@@ -67,6 +67,7 @@ function loadJSON(key, resId, decr, pass) {
 
 function setWalletNone() {
   setInputValue("walletNameElement", "None");
+  setInputValue("daoWalletNameNotConnected", "none");
   setInputValue("changeAddressBech32Element", "");
   setInputValue("pubKeyHashElement", "");
   setInputValue("stakeKeyHashElement", "");
@@ -159,6 +160,7 @@ async function walletLoad(walletName)
     const api = await walletAPI(walletName);
 
     setInputValue("walletNameElement", walletName);
+    setInputValue("daoWalletNameNotConnected", walletName);
 
     const networkId           = await api.getNetworkId();
     setInputValue("networkIdElement", networkId);
@@ -405,7 +407,6 @@ function toUTF8Array(str) {
 
 async function daoPollVoteTx(n, apiKey, net, walletName, answer)
 {
-  setInputValue("VoteCreateNewTx", "");
   // loading CardanoWasm
   await loader.load();
   const CardanoWasm = loader.Cardano;
@@ -414,7 +415,7 @@ async function daoPollVoteTx(n, apiKey, net, walletName, answer)
   const lucid = await lucidLoader.Lucid.new(
     new lucidLoader.Blockfrost(blockfrostAddress, apiKey),
     net,
-  )
+    );
 
   try {
     //loading wallet
@@ -425,6 +426,7 @@ async function daoPollVoteTx(n, apiKey, net, walletName, answer)
     const baseAddress      = CardanoWasm.BaseAddress.from_address(changeAddress);
     const stakeKeyHashCred = baseAddress.stake_cred();
     const stakeKeyHash     = stakeKeyHashCred.to_keyhash();
+    const utxos            = await api.getUtxos();
 
     const plc_lst = CardanoWasm.PlutusList.new();
     const tag1 = CardanoWasm.PlutusData.new_bytes(toUTF8Array("ENCOINS"));
@@ -437,6 +439,7 @@ async function daoPollVoteTx(n, apiKey, net, walletName, answer)
     plc_lst.add(tag4);
     const plc_msg = CardanoWasm.PlutusData.new_list(plc_lst);
 
+    setInputValue("VoteCreateNewTx", "");
 
     const tx = await lucid.newTx()
       .addSignerKey(toHexString(stakeKeyHash.to_bytes()))
@@ -479,7 +482,6 @@ async function daoPollVoteTx(n, apiKey, net, walletName, answer)
 
 async function daoDelegateTx(apiKey, net, walletName, url)
 {
-  setInputValue("DelegateCreateNewTx", "")
   // loading CardanoWasm
   await loader.load();
   const CardanoWasm = loader.Cardano;
@@ -490,7 +492,7 @@ async function daoDelegateTx(apiKey, net, walletName, url)
     // TODO: check url below
     new lucidLoader.Blockfrost(blockfrostAddress, apiKey),
     net,
-  )
+    );
 
   try {
     //loading wallet
@@ -515,6 +517,7 @@ async function daoDelegateTx(apiKey, net, walletName, url)
     plc_lst.add(tag4);
     const plc_msg = CardanoWasm.PlutusData.new_list(plc_lst);
 
+    setInputValue("DelegateCreateNewTx", "");
 
     const tx = await lucid.newTx()
       .addSignerKey(toHexString(stakeKeyHash.to_bytes()))
