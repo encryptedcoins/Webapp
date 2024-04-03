@@ -1083,7 +1083,7 @@ body {
   position: absolute;
   z-index: 500;
   display: none;
-  padding: 10px 40px;
+  padding: 10px 20px;
   border-radius: 6px;
   background-color: #fff;
   -webkit-filter: brightness(75%);
@@ -1709,7 +1709,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -1725,9 +1725,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
+  gap: 20px;
 }
 
 @media screen and (min-width: 860px) {
@@ -1741,7 +1739,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -1758,6 +1756,8 @@ body {
   font-size: 18px;
   line-height: 32px;
   text-align: center;
+  padding-top: min(5%, 20px);
+  padding-bottom: min(5%, 20px);
 }
 
 .app-ToolTip_MintingKey {
@@ -1919,23 +1919,23 @@ body {
   }
 }
 
-.app_Ipfs_IconPinning {
-  background-image: url('../images/ipfs_pinning.svg');
+.app-Save_IconSaving {
+  background-image: url('../images/cloud_yellow.svg');
 }
 
-.app_Ipfs_IconPinnedAll {
-  background-image: url('../images/ipfs_pinned.svg');
+.app-Save_IconAllSaved {
+  background-image: url('../images/cloud_green.svg');
 }
 
-.app_Ipfs_IconAttemptExcess {
-  background-image: url('../images/ipfs_excess.svg');
+.app-Save_IconAttemptExcess {
+  background-image: url('../images/cloud_red.svg');
 }
 
-.app_Ipfs_IconTurnOff {
-  background-image: url('../images/ipfs.svg');
+.app-Save_IconTurnOff {
+  background-image: url('../images/cloud_blank.svg');
 }
 
-.app-Ipfs_IconContainer {
+.app-Save_IconContainer {
   height: 31px;
   max-height: 31px;
   width: 27px;
@@ -1948,21 +1948,21 @@ body {
 }
 
 @media screen and (min-width: 767px) {
-  .app-Ipfs_IconContainer {
+  .app-Save_IconContainer {
     margin-bottom: 0px;
     margin-top: 10px;
   }
 }
 
-.app-Ipfs_IconContainer:hover {
+.app-Save_IconContainer:hover {
   cursor: pointer;
 }
 
-.app-Ipfs_IconContainer:hover .app-Nav_IpfsPopup {
+.app-Save_IconContainer:hover .app-Nav_SavePopup {
   display: inline-block;
 }
 
-.app-Nav_IpfsPopup {
+.app-Nav_SavePopup {
   display: flex;
   top: auto;
   right: 83px;
@@ -1974,18 +1974,18 @@ body {
 }
 
 @media screen and (min-width: 767px) {
-  .app-Nav_IpfsPopup {
+  .app-Nav_SavePopup {
     display: none;
     top: 50px;
     position: absolute;
   }
 }
 
-.app-Ipfs_CheckboxContainer {
+.app-Cloud_CheckboxContainer {
   display: flex;
 }
 
-.app-Ipfs_CheckboxDescription {
+.app-Save_CheckboxDescription {
   margin-left: 10px;
   display: flex;
   align-items: center;
@@ -1994,7 +1994,7 @@ body {
   line-height: 32px;
 }
 
-.app-Ipfs_AesKey_Title {
+.app-Cloud_AesKey_Title {
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -2003,7 +2003,14 @@ body {
   line-height: 32px;
 }
 
-.app-Ipfs_Status_Title {
+.app-Cloud_KeyContainer {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.app-Cloud_Status_Title {
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -2012,7 +2019,7 @@ body {
   line-height: 32px;
 }
 
-.app-Ipfs_CheckboxToggle {
+.app-Cloud_CheckboxToggle {
   position: relative;
   -webkit-transition: .4s;
   transition: .4s;
@@ -2027,7 +2034,7 @@ body {
   box-shadow: inset -20px 0 0 0 #6a6a6a;
 }
 
-.app-Ipfs_CheckboxToggle:after {
+.app-Cloud_CheckboxToggle:after {
   content: "off";
   text-align: center;
   font-size: 10px;
@@ -2039,29 +2046,26 @@ body {
   width: 26px;
   height: 26px;
   border-radius: 30%;
-  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.app-Ipfs_CheckboxToggle:checked {
-  box-shadow: inset 20px 0 0 0 #6BB6BB;
-  border-color: #6BB6BB;
+.app-Cloud_CheckboxToggle:checked {
+  box-shadow: inset 20px 0 0 0 #00cb7a;
+  border-color: #00cb7a;
 }
 
-.app-Ipfs_CheckboxToggle:checked:after {
+.app-Cloud_CheckboxToggle:checked:after {
   text-align: center;
   font-size: 10px;
   text-transform: uppercase;
   content: "on";
   top: 9px;
   left: 22px;
-  box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05);
 }
 
-.app-Ipfs_Window {
-  width: 70%;
+.app-Cloud_Window {
   min-width: 750px;
   height: 20%;
-  min-height: 250px;
+  min-height: 470px;
   padding-left: min(5%, 70px);
   padding-right: min(5%, 70px);
   padding-top: min(5%, 30px);
@@ -2104,14 +2108,15 @@ body {
 }
 
 .app-CleanCacheWindow {
-  width: 60%;
+  min-width: 450px;
+  min-height: 230px;
 }
 
 .app-PasswordSettingsWindow {
-  width: 90%;
-  min-width: 500px;
-  padding-left: min(5%, 70px);
-  padding-right: min(5%, 70px);
+  width: 800px;
+  min-width: 300px;
+  padding-left: min(5%, 30px);
+  padding-right: min(5%, 30px);
   padding-top: min(5%, 30px);
   padding-bottom: min(5%, 30px);
 }
@@ -2136,11 +2141,98 @@ body {
   position: absolute;
 }
 
-.app-DelegateWindow {
-  width: 90%;
-  min-width: 550px;
+.dao-DelegateWindow {
+  min-width: 950px;
   padding-left: min(5%, 70px);
   padding-right: min(5%, 70px);
   padding-top: min(5%, 30px);
   padding-bottom: min(5%, 30px);
+}
+
+.app-CoinBurn_KeyTip {
+  left: -400px;
+  width: 400px;
+}
+
+.app-CloudWindow_KeyTip {
+  left: 100px;
+  top: -90px;
+  min-width: 420px;
+  height: 60px;
+}
+
+.app-Cloud_Restore_Title {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+
+.app-Cloud_Restore_ButtonContainer {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  /* gap: 10px; */
+  /* margin-left: 5%; */
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 860px) {
+  .app-Cloud_Restore_ButtonContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.app-Cloud_Key_ButtonContainer {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 860px) {
+  .app-Cloud_Key_ButtonContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.app-DeleteKeyWindow {
+  width: 750px;
+  min-height: 250px;
+}
+
+.app-DeleteKey_Description {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+  padding-top: min(5%, 20px);
+  padding-bottom: min(5%, 20px);
+}
+
+.app-DeleteKey_ButtonContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 900px) {
+  .app-DeleteKey_ButtonContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.app-PasswordProtect_Window {
+  display:flex;
+  flex-direction: column;
 }
